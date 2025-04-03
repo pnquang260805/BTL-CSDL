@@ -43,9 +43,4 @@ public class Order {
     )
     @JsonManagedReference
     Set<Product> products;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JsonBackReference
-    @JoinColumn(name = "payment_account_id")
-    PaymentAccount paymentAccount;
 }

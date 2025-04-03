@@ -36,27 +36,9 @@ public class Customer {
     String email;
     @Column(name = "password")
     String password;
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "customer_address",
-            // Khóa phức hợp
-            joinColumns = @JoinColumn(name = "customer_id"), // Xác định cột trong bảng trung gian đại diện cho khóa chính của Customer.
-            inverseJoinColumns = @JoinColumn(name = "address_id") // Xác định cột đại diện cho khóa chính của Address
-    )
-    @JsonManagedReference
-    Set<Address> addresses; // mappedBy tên biến này
+    String address;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     @JsonManagedReference
     Set<Order> orders;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-    @JsonManagedReference
-    Set<PaymentAccount> paymentAccounts = new HashSet<>();
-
-    // Các helper method để duy trì mối quan hệ hai chiều
-    public void addAddress(Address address){
-        this.addresses.add(address);
-        address.getCustomers().add(this);
-    }
 }

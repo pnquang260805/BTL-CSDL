@@ -1,4 +1,4 @@
-package com.ptit.csdl.dto.request;
+package com.ptit.csdl.dto.request.creation;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -18,6 +18,6 @@ public class CustomerRegisterRequest {
     String gender;
     String email;
     String password;
-    Set<Long> addressesIds;
-    Set<Long>  paymentAccountId;
+    String address;
+    Set<Long> orders;
 }

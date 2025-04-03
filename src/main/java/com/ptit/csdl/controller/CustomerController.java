@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -12,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ptit.csdl.dto.request.CustomerRegisterRequest;
-import com.ptit.csdl.dto.request.CustomerUpdateRequest;
+import com.ptit.csdl.dto.request.creation.CustomerRegisterRequest;
+import com.ptit.csdl.dto.request.update.CustomerUpdateRequest;
 import com.ptit.csdl.dto.response.CustomerResponse;
+import com.ptit.csdl.dto.response.OrderResponse;
 import com.ptit.csdl.exception.ApiResponse;
 import com.ptit.csdl.service.CustomerService;
 
@@ -35,6 +37,13 @@ public class CustomerController {
     public ApiResponse<List<CustomerResponse>> findUsers(){
         ApiResponse<List<CustomerResponse>> response = new ApiResponse<>();
         response.setResult(customerService.findCustomers());
+        return response;
+    }
+
+    @GetMapping(value = "/{id}")
+    public ApiResponse<CustomerResponse> getOrderById(@PathVariable Long id){
+        ApiResponse<CustomerResponse> response = new ApiResponse<CustomerResponse>();
+        response.setResult(customerService.findCustomerById(id));
         return response;
     }
 

@@ -11,6 +11,7 @@ import java.util.Set;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomerResponse {
+    Long id;
     String customerName;
     String firstName;
     String lastName;
@@ -18,6 +19,6 @@ public class CustomerResponse {
     String gender;
     String email;
     String password;
-    Set<AddressResponse> addresses; // Tên phải giống bên entity để có thể map
-    Set<Object>  paymentAccountId;
+    String address;
+    Set<OrderResponse> orders;
 }

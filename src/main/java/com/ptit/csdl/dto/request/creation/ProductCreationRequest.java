@@ -1,4 +1,4 @@
-package com.ptit.csdl.dto.request;
+package com.ptit.csdl.dto.request.creation;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;

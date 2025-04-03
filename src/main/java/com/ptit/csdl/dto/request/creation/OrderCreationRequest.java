@@ -1,4 +1,4 @@
-package com.ptit.csdl.dto.request;
+package com.ptit.csdl.dto.request.creation;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
@@ -11,9 +11,11 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryCreationRequest {
-    String categoryName;
-    String description;
-    String tag;
+public class OrderCreationRequest {
+    Date orderDate;
+    Float totalAmount;
+    String status;
+    Long numberOfProductsOrdered;
+    Long customerId;
     Set<Long> productId;
 }
