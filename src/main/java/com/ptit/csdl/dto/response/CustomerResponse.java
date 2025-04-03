@@ -18,6 +18,6 @@ public class CustomerResponse {
     String gender;
     String email;
     String password;
-    Set<Long> addressId;
-    Set<Long>  paymentAccountId;
+    Set<AddressResponse> addresses; // Tên phải giống bên entity để có thể map
+    Set<Object>  paymentAccountId;
 }

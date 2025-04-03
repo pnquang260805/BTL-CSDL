@@ -30,7 +30,7 @@ public class Product {
     @Column(name = "modified_on")
     Date modifiedOn;
     @Column(name = "image_url")
-    Date imageUrl;
+    String imageUrl;
 
     String vendor;
     Float price;

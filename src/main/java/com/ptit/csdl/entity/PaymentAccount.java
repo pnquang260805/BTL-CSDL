@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import java.sql.Date;
 import java.util.Set;
 
 @Getter
@@ -20,6 +21,8 @@ public class PaymentAccount {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "payment_account_id")
     Long id;
+    @Column(name = "valid_thru")
+    Date validThru;
 
     @Column(name = "account_number")
     String accountNumber;

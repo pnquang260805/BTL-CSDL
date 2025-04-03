@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -51,5 +52,11 @@ public class Customer {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     @JsonManagedReference
-    Set<PaymentAccount> paymentAccounts;
+    Set<PaymentAccount> paymentAccounts = new HashSet<>();
+
+    // Các helper method để duy trì mối quan hệ hai chiều
+    public void addAddress(Address address){
+        this.addresses.add(address);
+        address.getCustomers().add(this);
+    }
 }

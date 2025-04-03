@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -19,18 +20,13 @@ public class Address {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "address_id")
     Long id;
-    @Column(name = "house_number")
     String houseNumber;
-    @Column(name = "street")
     String street;
-    @Column(name = "dítrict")
     String district;
-    @Column(name = "country")
     String country;
-    @Column(name = "zipcode")
     String zipcode;
 
     @ManyToMany(mappedBy = "addresses", cascade = CascadeType.ALL)
     @JsonBackReference
-    Set<Customer> customers;
+    Set<Customer> customers = new HashSet<>();
 }

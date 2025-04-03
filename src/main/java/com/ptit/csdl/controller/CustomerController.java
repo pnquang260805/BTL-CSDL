@@ -16,14 +16,11 @@ import com.ptit.csdl.dto.request.CustomerRegisterRequest;
 import com.ptit.csdl.dto.request.CustomerUpdateRequest;
 import com.ptit.csdl.dto.response.CustomerResponse;
 import com.ptit.csdl.exception.ApiResponse;
-import com.ptit.csdl.mapper.CustomerMapper;
 import com.ptit.csdl.service.CustomerService;
 
 @RestController
 @RequestMapping(value = "/api/customers")
 public class CustomerController {
-    @Autowired
-    private CustomerMapper customerMapper;
     @Autowired 
     private CustomerService customerService;
 

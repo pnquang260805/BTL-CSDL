@@ -16,7 +16,7 @@ public class AuthenticationService {
     CustomerRepository customerRepository;
 
     public boolean isMatches(AuthenticationRequest request) {
-        var customer = customerRepository.findByCustomerName(request.getUsername()).orElseThrow(
+        var customer = customerRepository.findByEmail(request.getEmail()).orElseThrow(
                 () -> new AppException(ErrorCode.CUSTOMER_NOT_EXISTS.getMsg(), ErrorCode.CUSTOMER_NOT_EXISTS));
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         return passwordEncoder.matches(request.getPassword(), customer.getPassword());
