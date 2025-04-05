@@ -31,7 +31,8 @@ public class ProductService {
     }
 
     public ProductResponse findById(Long id){
-        return productMapper.toResponse(productRepository.findById(id).orElseThrow());
+        ProductResponse product = productMapper.toResponse(productRepository.findById(id).orElseThrow());
+        return product;
     }
 
     public List<ProductResponse> findByName(String productName){

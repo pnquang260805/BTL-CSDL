@@ -53,6 +53,14 @@ public class ProductController {
         return response;
     }
 
+    @GetMapping(value = "/id/{id}")
+    public ApiResponse<ProductResponse> findProductsById(@PathVariable Long id){
+        ProductResponse products = productService.findById(id);
+        ApiResponse<ProductResponse> response = new ApiResponse<>();
+        response.setResult(products);
+        return response;
+    }
+
     @PutMapping
     public ApiResponse<ProductResponse> updateProduct(@RequestParam Map<String, Object> data, @RequestBody ProductCreationRequest request){
         ApiResponse<ProductResponse> response = new ApiResponse<>();

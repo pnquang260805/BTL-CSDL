@@ -2,7 +2,8 @@ package com.ptit.csdl.exception;
 
 public enum ErrorCode {
     CUSTOMER_NOT_EXISTS(10001, "customer not exist"),
-    ORDER_NOT_EXISTS(10002, "Order not exist")
+    ORDER_NOT_EXISTS(10002, "Order not exist"),
+    PRODUCT_NOT_FOUND(10003, "product not found")
     ;
     private Integer code;
     private String msg;

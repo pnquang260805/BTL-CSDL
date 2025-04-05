@@ -44,8 +44,8 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product") // Tên trùng với biến product ở bên kia
     @JsonManagedReference
-    Set<ProductReview> productReviews;
+    Set<ProductReview> reviews; // Cùng tên với response
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
-    Set<CartProduct> cartProducts;
+    Set<CartProduct> cartProducts; // nhớ phải cùng tên với response
 }
