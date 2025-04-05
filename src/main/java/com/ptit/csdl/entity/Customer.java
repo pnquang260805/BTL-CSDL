@@ -41,4 +41,7 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
     @JsonManagedReference
     Set<Order> orders;
+
+    @OneToOne(mappedBy = "customer")
+    Cart cart;
 }

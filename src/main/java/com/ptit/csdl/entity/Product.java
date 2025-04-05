@@ -1,6 +1,5 @@
 package com.ptit.csdl.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -32,12 +31,7 @@ public class Product {
     @Column(name = "image_url")
     String imageUrl;
 
-    String vendor;
     Float price;
-
-    @ManyToMany(mappedBy = "products", cascade = CascadeType.ALL)
-    @JsonBackReference
-    Set<Order> orders;
 
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
@@ -51,4 +45,7 @@ public class Product {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product") // Tên trùng với biến product ở bên kia
     @JsonManagedReference
     Set<ProductReview> productReviews;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
+    Set<CartProduct> cartProducts;
 }
