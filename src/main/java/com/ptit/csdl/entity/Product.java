@@ -8,6 +8,7 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -40,7 +41,7 @@ public class Product {
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
     @JsonManagedReference
-    Set<Category> categories;
+    Set<Category> categories = new HashSet<>();
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product") // Tên trùng với biến product ở bên kia
     @JsonManagedReference

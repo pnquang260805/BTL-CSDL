@@ -1,6 +1,5 @@
 package com.ptit.csdl.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -8,6 +7,10 @@ import lombok.Setter;
 import lombok.experimental.FieldDefaults;
 
 import java.util.Set;
+
+import org.hibernate.validator.constraints.UniqueElements;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Getter
 @Setter
@@ -24,8 +27,10 @@ public class Category {
     @Column(name = "description")
     String description;
     @Column(name = "tag")
+    @UniqueElements
     String tag;
 
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)
+    @JsonBackReference
     Set<Product> products;
 }

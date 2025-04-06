@@ -1,5 +1,4 @@
-package com.ptit.csdl.dto.request.creation;
-
+package com.ptit.csdl.dto.request.update;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
@@ -12,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @AllArgsConstructor
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class CategoryCreationRequest {
+public class CategoryUpdateRequest {
     @JsonProperty("category_name")
     String categoryName;
     @JsonProperty("description")

@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ptit.csdl.entity.Category;
 import com.ptit.csdl.entity.ProductReview;
 
@@ -15,6 +16,8 @@ import com.ptit.csdl.entity.ProductReview;
 @NoArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class ProductResponse {
+    @JsonProperty("product_id")
+    Long id;
     String productName;
     Float price;
     Long quantityInStock;
