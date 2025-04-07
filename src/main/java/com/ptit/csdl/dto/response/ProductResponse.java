@@ -9,6 +9,7 @@ import java.util.Set;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.ptit.csdl.entity.Category;
 import com.ptit.csdl.entity.ProductReview;
+import com.ptit.csdl.entity.Supplier;
 
 @Data
 @Builder
@@ -27,4 +28,5 @@ public class ProductResponse {
     String imageUrl;
     Set<Category> categories; // Modify
     Set<ProductReview> reviews; // modify
+    Supplier supplier;
 }

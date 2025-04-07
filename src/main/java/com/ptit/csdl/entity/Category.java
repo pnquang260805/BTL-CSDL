@@ -26,8 +26,7 @@ public class Category {
     String categoryName;
     @Column(name = "description")
     String description;
-    @Column(name = "tag")
-    @UniqueElements
+    @Column(name = "tag", unique = true)
     String tag;
 
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL)

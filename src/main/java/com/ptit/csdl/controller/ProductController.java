@@ -61,10 +61,10 @@ public class ProductController {
         return response;
     }
 
-    @PutMapping
-    public ApiResponse<ProductResponse> updateProduct(@RequestParam Map<String, Object> data, @RequestBody ProductCreationRequest request){
+    @PutMapping(params = "id")
+    public ApiResponse<ProductResponse> updateProduct(@RequestParam Long id, @RequestBody ProductCreationRequest request){
         ApiResponse<ProductResponse> response = new ApiResponse<>();
-        response.setResult(productService.updateProduct(data, request));
+        response.setResult(productService.updateProduct(id, request));
         return response;
     }
 

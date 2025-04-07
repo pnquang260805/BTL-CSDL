@@ -30,6 +30,6 @@ public class ProductCreationRequest {
     Set<Long> categoryIds;
     @JsonProperty("review_ids")
     Set<Long> reviewIds;
-    @JsonProperty("supplier_ids")
-    Set<Long> supplierIds;
+    @JsonProperty("supplier_id")
+    Long supplierId;
 }

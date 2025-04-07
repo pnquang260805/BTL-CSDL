@@ -1,5 +1,6 @@
 package com.ptit.csdl.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AccessLevel;
@@ -49,4 +50,9 @@ public class Product {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     Set<CartProduct> cartProducts; // nhớ phải cùng tên với response
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JsonBackReference
+    @JoinColumn(name = "supplier_id")
+    Supplier supplier;
 }
