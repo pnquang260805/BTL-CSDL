@@ -11,5 +11,6 @@ import lombok.AccessLevel;
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class AuthenticationResponse {
-    boolean isMatches;
+    boolean authenticated;
+    String token;
 }
