@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 import java.util.Date;
 import java.util.Set;
 
+import com.ptit.csdl.entity.Cart;
 import com.ptit.csdl.entity.Customer;
 import com.ptit.csdl.entity.Product;
 
@@ -21,5 +22,5 @@ public class OrderResponse {
     String status;
     Long numberOfProductsOrdered;
     Long customerId;
-    Set<Product> products;
+    Set<Cart> carts;
 }

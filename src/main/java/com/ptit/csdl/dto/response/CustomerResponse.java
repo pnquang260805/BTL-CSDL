@@ -5,6 +5,8 @@ import lombok.experimental.FieldDefaults;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Data
 @Builder
 @AllArgsConstructor
@@ -12,10 +14,15 @@ import java.util.Set;
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class CustomerResponse {
     Long id;
+    @JsonProperty("customer_name")
     String customerName;
+    @JsonProperty("first_name")
     String firstName;
+    @JsonProperty("last_name")
     String lastName;
+    @JsonProperty("phone_number")
     String phoneNumber;
+    @JsonProperty("gender")
     String gender;
     String email;
     String password;

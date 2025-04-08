@@ -22,11 +22,13 @@ public class ProductResponse {
     String productName;
     Float price;
     Long quantityInStock;
-    String vendor;
     Date createdOn;
     Date modifiedOn;
     String imageUrl;
     Set<Category> categories; // Modify
     Set<ProductReview> reviews; // modify
-    Supplier supplier;
+    @JsonProperty("supplier_id")
+    Long supplierId;
+    @JsonProperty("supplier_name")
+    String supplierName;
 }
